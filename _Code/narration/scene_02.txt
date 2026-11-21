@@ -1,0 +1,9 @@
+We represent our linear system compactly as A x equals b, where A is the coefficient matrix, x is the variable vector, and b is the constant vector. Combining them forms the augmented matrix.
+
+Our learning objective: By the end of this video, the viewer will be able to explain how Gaussian elimination uses row operations to reduce a 3 by 3 system to row echelon form, why those operations do not change the solution set, and what the solution means geometrically.
+
+We use three elementary row operations: row swap, row scaling, and row replacement.
+
+Because each operation is reversible, they strictly preserve the solution set.
+
+Our goal is Row Echelon Form: a staircase pattern where leading pivots advance to the right, with zeros everywhere below.

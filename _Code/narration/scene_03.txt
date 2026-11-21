@@ -1,0 +1,15 @@
+In three dimensions, each linear equation represents a plane.
+
+The blue plane is x plus y plus z equals 6.
+
+The green plane is 2x plus 3y plus z equals 11.
+
+And the orange plane is x plus 2y plus 3z equals 14.
+
+Two non-parallel planes intersect along a line. When the third plane crosses that line, all three meet at a single point: (1, 2, 3). This is our unique solution.
+
+Why do row operations preserve this solution?
+
+Adding a multiple of one row to another replaces a plane with a linear combination. The plane tilts, but it still passes through the common intersection line.
+
+Row operations simplify our view without altering where the planes intersect.

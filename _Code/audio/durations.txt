@@ -1,0 +1,9 @@
+# Scene Audio Durations
+scene_01: 34.06s (Hook and Context)
+scene_02: 45.62s (Concept Introduction)
+scene_03: 45.79s (Visual Intuition)
+scene_04: 89.06s (Worked Example)
+scene_05: 60.50s (Interpretation)
+scene_06: 54.62s (Summary and Credits)
+
+Total Narration Duration: 329.66s (5.49 minutes)

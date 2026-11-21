@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Manim intermediate files and caches
+media/
+videos/
+images/
+_temp/
+*.partial.mp4
+_Code/renders/
+_Code/synced_scenes/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+venv/
+.venv/
+env/

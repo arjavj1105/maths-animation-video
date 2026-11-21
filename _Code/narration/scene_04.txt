@@ -1,0 +1,31 @@
+Let us execute Gaussian elimination.
+
+We begin with the augmented matrix: Row 1 is [1, 1, 1 | 6], Row 2 is [2, 3, 1 | 11], and Row 3 is [1, 2, 3 | 14].
+
+Our first pivot is 1 in row 1.
+
+Operation 1: R2 becomes R2 minus 2 R1.
+
+[2, 3, 1 | 11] minus 2 times [1, 1, 1 | 6] equals [0, 1, minus 1 | minus 1].
+
+Operation 2: R3 becomes R3 minus R1.
+
+[1, 2, 3 | 14] minus [1, 1, 1 | 6] equals [0, 1, 2 | 8]. Column 1 is cleared.
+
+Now, row 2 pivot is 1.
+
+Operation 3: R3 becomes R3 minus R2.
+
+[0, 1, 2 | 8] minus [0, 1, minus 1 | minus 1] equals [0, 0, 3 | 9].
+
+The matrix is in Row Echelon Form! The three pivots are 1, 1, and 3, highlighted along the staircase.
+
+Now, back substitution.
+
+Row 3 gives: 3z equals 9, so z equals 3.
+
+Row 2 gives: y minus z equals minus 1. Substituting z equals 3 gives y equals 2.
+
+Row 1 gives: x plus y plus z equals 6. Substituting y and z gives x equals 1.
+
+Our final solution is (1, 2, 3).

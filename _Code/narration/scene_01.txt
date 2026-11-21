@@ -1,0 +1,9 @@
+Welcome to this Mathematics 3 assessment on Gaussian Elimination, presented by Arjav Jain, Student ID E25B070861, from the Ramanujan batch.
+
+Consider this system of three simultaneous equations: x plus y plus z equals 6, 2x plus 3y plus z equals 11, and x plus 2y plus 3z equals 14.
+
+Solving by trial and error or repeated substitution quickly becomes tangled.
+
+Is there a systematic method to solve all three equations efficiently?
+
+The answer is Gaussian Elimination.

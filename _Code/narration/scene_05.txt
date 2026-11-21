@@ -1,0 +1,15 @@
+Let us verify our solution by substituting x equals 1, y equals 2, and z equals 3 into all three original equations.
+
+Equation 1: 1 plus 2 plus 3 equals 6. Verified!
+
+Equation 2: 2 times 1 plus 3 times 2 plus 3 equals 11. Verified!
+
+Equation 3: 1 plus 2 times 2 plus 3 times 3 equals 14. Verified!
+
+All three equations hold. Geometrically, (1, 2, 3) is the exact point where all three planes intersect.
+
+Consider two special cases.
+
+An inconsistent system produces a row like [0, 0, 0 | 5], meaning 0 equals 5. This contradiction means no solution exists.
+
+A dependent system produces a row like [0, 0, 0 | 0], meaning 0 equals 0. With free variables, this indicates infinitely many solutions along an intersecting line.
