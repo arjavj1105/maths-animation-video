@@ -1,6 +1,6 @@
 """
-Video & Narration Merge Pipeline
-Combines 1080p scene video with measured narration audio for all six scenes,
+Video & Human Narration Merge Pipeline
+Combines 1080p scene video with Arjav Jain's recorded narration audio for all six scenes,
 ensures audio-video sync, and concatenates all scenes into the final _Video.mp4.
 """
 
@@ -11,7 +11,7 @@ import subprocess
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(BASE_DIR)
 RENDERS_DIR = os.path.join(BASE_DIR, "renders")
-AUDIO_DIR = os.path.join(BASE_DIR, "audio")
+PROCESSED_AUDIO_DIR = os.path.join(BASE_DIR, "audio", "processed")
 COMBINED_DIR = os.path.join(BASE_DIR, "synced_scenes")
 FINAL_VIDEO = os.path.join(PROJECT_ROOT, "_Video.mp4")
 
@@ -40,16 +40,20 @@ def get_duration(file_path: str) -> float:
 def sync_scene(scene_id: str):
     os.makedirs(COMBINED_DIR, exist_ok=True)
     video_path = os.path.join(RENDERS_DIR, f"{scene_id}.mp4")
-    audio_path = os.path.join(AUDIO_DIR, f"{scene_id}.mp3")
+    audio_path = os.path.join(PROCESSED_AUDIO_DIR, f"{scene_id}.wav")
     synced_path = os.path.join(COMBINED_DIR, f"{scene_id}_synced.mp4")
+
+    if not os.path.exists(video_path):
+        raise FileNotFoundError(f"Missing rendered video: {video_path}")
+    if not os.path.exists(audio_path):
+        raise FileNotFoundError(f"Missing human voiceover audio: {audio_path}")
 
     v_dur = get_duration(video_path)
     a_dur = get_duration(audio_path)
     print(f"\nSyncing {scene_id}: Video = {v_dur:.2f}s, Audio = {a_dur:.2f}s")
 
     # If video is slightly longer or shorter, adjust video hold or pad audio
-    # Typically video is crafted >= audio duration.
-    # We use tpad to hold the last frame if video is shorter, or pad audio with silence if video is longer.
+    # Typically video is crafted >= audio duration (+0.2-0.3s breathing buffer).
     if v_dur >= a_dur:
         # Pad audio with silence to match exact video duration
         pad_needed = v_dur - a_dur
@@ -63,11 +67,12 @@ def sync_scene(scene_id: str):
             "-c:v", "copy",
             "-c:a", "aac",
             "-b:a", "192k",
+            "-ar", "44100",
             synced_path
         ]
     else:
         # Video is shorter than audio: extend last frame of video to match audio duration
-        pad_needed = a_dur - v_dur + 0.5
+        pad_needed = a_dur - v_dur + 0.3
         cmd = [
             FFMPEG, "-y",
             "-i", video_path,
@@ -76,9 +81,13 @@ def sync_scene(scene_id: str):
             "-map", "[v]",
             "-map", "1:a",
             "-c:v", "libx264",
+            "-preset", "medium",
+            "-crf", "18",
             "-pix_fmt", "yuv420p",
+            "-r", "30",
             "-c:a", "aac",
             "-b:a", "192k",
+            "-ar", "44100",
             synced_path
         ]
 
@@ -88,9 +97,10 @@ def sync_scene(scene_id: str):
     return synced_path
 
 def merge_all():
-    print("=" * 60)
-    print("MERGING ALL SCENES INTO FINAL VIDEO")
-    print("=" * 60)
+    print("=" * 65)
+    print("MERGING ALL SCENES INTO FINAL VIDEO (ARJAV JAIN VOICEOVER)")
+    print("Student: Arjav Jain | Student ID: E25B070861 | Batch: Ramanujan")
+    print("=" * 65)
 
     synced_files = []
     for sid in SCENE_IDS:
@@ -116,6 +126,7 @@ def merge_all():
         "-r", "30",
         "-c:a", "aac",
         "-b:a", "192k",
+        "-ar", "44100",
         "-movflags", "+faststart",
         FINAL_VIDEO
     ]
@@ -123,11 +134,11 @@ def merge_all():
 
     final_dur = get_duration(FINAL_VIDEO)
     final_size_mb = os.path.getsize(FINAL_VIDEO) / (1024 * 1024)
-    print("\n" + "=" * 60)
+    print("\n" + "=" * 65)
     print(f"SUCCESS: Final Video Created at: {FINAL_VIDEO}")
     print(f"Duration: {final_dur:.2f}s ({final_dur/60:.2f} minutes)")
     print(f"File Size: {final_size_mb:.2f} MB")
-    print("=" * 60)
+    print("=" * 65)
 
 if __name__ == "__main__":
     merge_all()

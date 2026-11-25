@@ -1,7 +1,8 @@
 """
 Scene 3: Visual Intuition
 Topic: 3D Geometric Planes, Intersection Point (1, 2, 3), Invariance under Row Operations
-Target duration: ~46.0s (Audio duration: 45.79s)
+Narration: Original voice recording by Arjav Jain (Duration: 41.01s)
+Target synchronized animation duration: 41.30s
 """
 
 import sys
@@ -19,8 +20,8 @@ class Scene03Geometry(ThreeDScene):
         self.camera.background_color = BG_COLOR
 
         # -------------------------------------------------------------
-        # 1. 2D Overlay Header
-        # Time: 0.0s -> 5.0s (5.0s)
+        # 1. 2D Overlay Header & Legend
+        # Time: 0.0s -> 3.5s (Matches narration 0.04s -> 4.36s)
         # -------------------------------------------------------------
         header_title = Text("3D Geometric Intuition", font="Helvetica", weight=BOLD, font_size=28, color=TEXT_COLOR)
         header_title.to_corner(UL, buff=0.4)
@@ -39,11 +40,10 @@ class Scene03Geometry(ThreeDScene):
         legend = VGroup(leg_box, legend_vgroup).to_corner(DL, buff=0.4)
         self.add_fixed_in_frame_mobjects(legend)
         self.play(FadeIn(legend), run_time=1.0)
-        self.wait(3.0)
 
         # -------------------------------------------------------------
         # 2. 3D Setup: Axes, Planes, Intersection Point
-        # Time: 5.0s -> 20.0s (15.0s)
+        # Time: 3.5s -> 18.5s (Matches narration 4.36s -> 17.07s)
         # -------------------------------------------------------------
         axes = ThreeDAxes(
             x_range=[-1, 5, 1],
@@ -108,22 +108,30 @@ class Scene03Geometry(ThreeDScene):
         self.add_fixed_in_frame_mobjects(sol_badge)
 
         self.play(Create(axes), run_time=1.5)
-        self.play(FadeIn(p1), FadeIn(p2), run_time=2.0)
+        # Plane 1 appears with narration
+        self.play(FadeIn(p1), run_time=1.5)
+        self.wait(2.5)
+        # Plane 2 appears with narration
+        self.play(FadeIn(p2), run_time=1.5)
+        self.wait(2.5)
+        # Plane 3 appears with narration
         self.play(FadeIn(p3), run_time=1.5)
+        self.wait(4.0)
+
+        # Solution Point & Badge appear
         self.play(GrowFromCenter(sol_dot), FadeIn(sol_badge), run_time=1.5)
-        self.wait(8.5)
 
         # -------------------------------------------------------------
         # 3. Controlled Camera Rotation (Revealing Intersection Line & Point)
-        # Time: 20.0s -> 34.0s (14.0s)
+        # Time: 18.5s -> 26.0s (Matches narration 17.07s -> 26.00s)
         # -------------------------------------------------------------
         self.begin_ambient_camera_rotation(rate=0.25)
-        self.wait(13.0)
+        self.wait(7.5)
         self.stop_ambient_camera_rotation()
 
         # -------------------------------------------------------------
         # 4. Row Operation Geometric Intuition
-        # Time: 34.0s -> 46.0s (12.0s)
+        # Time: 26.0s -> 41.3s (Matches narration 26.00s -> 40.48s)
         # -------------------------------------------------------------
         row_op_note = Text(
             "Row operations replace a plane with a linear combination,\n"
@@ -136,4 +144,4 @@ class Scene03Geometry(ThreeDScene):
 
         self.play(FadeIn(row_op_card, shift=UP * 0.2), run_time=1.5)
         self.move_camera(phi=75 * DEGREES, theta=80 * DEGREES, run_time=4.0)
-        self.wait(6.5)
+        self.wait(9.8)

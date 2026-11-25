@@ -2,7 +2,8 @@
 Scene 5: Interpretation
 Topic: Verification into Original 3 Equations, 3D Point Reconnection,
        Special Cases (Inconsistent vs Dependent Systems)
-Target duration: ~61.0s (Audio duration: 60.50s)
+Narration: Original voice recording by Arjav Jain (Duration: 55.10s)
+Target synchronized animation duration: 55.30s
 """
 
 import sys
@@ -22,10 +23,11 @@ class Scene05Interpretation(Scene):
 
         # -------------------------------------------------------------
         # 1. Header & Verification by Substitution
-        # Time: 0.0s -> 28.0s (28.0s)
+        # Time: 0.0s -> 30.8s (Matches narration 0.05s -> 30.48s)
         # -------------------------------------------------------------
         header = create_header("Verification & Geometric Interpretation", "Substituting solution (x=1, y=2, z=3) into all original equations")
         self.play(FadeIn(header, shift=DOWN * 0.2), run_time=1.0)
+        self.wait(7.5)
 
         # Equation 1 Verification
         eq1_card = VGroup(
@@ -53,30 +55,30 @@ class Scene05Interpretation(Scene):
 
         verif_table = VGroup(row1_grp, row2_grp, row3_grp).arrange(DOWN, buff=0.45, aligned_edge=LEFT).move_to(UP * 0.4)
 
-        # Animate equations and checks one by one
-        self.play(FadeIn(eq1_card, shift=RIGHT * 0.2), run_time=1.2)
-        self.play(Create(chk1), run_time=0.8)
+        # Animate equations and checks one by one synchronized to Arjav's speech
+        self.play(FadeIn(eq1_card, shift=RIGHT * 0.2), run_time=1.0)
+        self.play(Create(chk1), run_time=0.7)
         self.wait(3.0)
 
-        self.play(FadeIn(eq2_card, shift=RIGHT * 0.2), run_time=1.2)
-        self.play(Create(chk2), run_time=0.8)
-        self.wait(3.0)
+        self.play(FadeIn(eq2_card, shift=RIGHT * 0.2), run_time=1.0)
+        self.play(Create(chk2), run_time=0.7)
+        self.wait(4.3)
 
-        self.play(FadeIn(eq3_card, shift=RIGHT * 0.2), run_time=1.2)
-        self.play(Create(chk3), run_time=0.8)
-        self.wait(4.0)
+        self.play(FadeIn(eq3_card, shift=RIGHT * 0.2), run_time=1.0)
+        self.play(Create(chk3), run_time=0.7)
+        self.wait(2.9)
 
         # Confirmation badge
         all_verified = create_badge("ALL THREE EQUATIONS SATISFIED  (100% ACCURATE)", color=SUCCESS_GREEN, font_size=18)
         all_verified.next_to(verif_table, DOWN, buff=0.45)
-        self.play(DrawBorderThenFill(all_verified), run_time=1.2)
-        self.wait(9.6)
+        self.play(DrawBorderThenFill(all_verified), run_time=1.0)
+        self.wait(6.0)
 
         # -------------------------------------------------------------
         # 2. Geometric Reconnection & Special Cases
-        # Time: 28.0s -> 61.0s (33.0s)
+        # Time: 30.8s -> 55.3s (Matches narration 30.48s -> 54.84s)
         # -------------------------------------------------------------
-        self.play(FadeOut(verif_table), FadeOut(all_verified), FadeOut(header), run_time=1.2)
+        self.play(FadeOut(verif_table), FadeOut(all_verified), FadeOut(header), run_time=1.0)
 
         sc_title = Text("Special Cases in Gaussian Elimination", font="Helvetica", weight=BOLD, font_size=26, color=TEXT_COLOR)
         sc_title.to_edge(UP, buff=0.8)
@@ -102,8 +104,8 @@ class Scene05Interpretation(Scene):
         case2_box = RoundedRectangle(width=5.8, height=2.6, corner_radius=0.12, stroke_width=1.5, stroke_color=ACCENT_CYAN, fill_color="#0F172A", fill_opacity=0.9)
         case2_card = VGroup(case2_box, case2_vgroup).move_to(RIGHT * 3.1 + DOWN * 0.3)
 
-        self.play(FadeIn(case1_card, shift=UP * 0.2), run_time=1.5)
-        self.wait(12.0)
+        self.play(FadeIn(case1_card, shift=UP * 0.2), run_time=1.2)
+        self.wait(8.6)
 
-        self.play(FadeIn(case2_card, shift=UP * 0.2), run_time=1.5)
-        self.wait(15.0)
+        self.play(FadeIn(case2_card, shift=UP * 0.2), run_time=1.2)
+        self.wait(11.5)

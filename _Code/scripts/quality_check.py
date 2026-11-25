@@ -1,6 +1,6 @@
 """
 Quality Assurance and Verification Script
-Performs mathematical checks, audio checks, technical ffprobe checks,
+Performs technical ffprobe checks, audio checks,
 and extracts representative frames from all six scenes.
 """
 
@@ -60,7 +60,7 @@ def run_technical_check():
     print(f"Resolution:       {width}x{height} (Expected: 1920x1080)")
     print(f"Aspect Ratio:     16:9")
     print(f"Frame Rate:       {fps} FPS (Expected: 30 FPS)")
-    print(f"Total Duration:   {duration:.2f}s ({duration/60:.2f} minutes) [Limit: strictly <= 7 min]")
+    print(f"Total Duration:   {duration:.2f}s ({duration/60:.2f} minutes) [Limit: strictly < 7 min]")
     print(f"File Size:        {size_mb:.2f} MB")
 
     # Assertions
@@ -79,20 +79,26 @@ def extract_inspection_frames():
     print("=" * 65)
     os.makedirs(FRAMES_DIR, exist_ok=True)
 
-    # Timestamps to sample each scene:
-    # Scene 1: ~15s (Equations intro)
-    # Scene 2: ~50s (Learning objective & row operations)
-    # Scene 3: ~100s (3D Planes intersecting)
-    # Scene 4: ~170s (Row operation arithmetic & echelon form)
-    # Scene 5: ~245s (Verification with checkmarks)
-    # Scene 6: ~300s (Takeaways and credits)
+    # Timestamps in the 316.63s video:
+    # Scene 1: 0 - 34.5s => sample at 18.0s (Equations)
+    # Scene 2: 34.5 - 81.0s => sample at 55.0s (Learning Objective) and 70.0s (Row Operations)
+    # Scene 3: 81.0 - 122.3s => sample at 100.0s (3D Planes and Intersection Point)
+    # Scene 4: 122.3 - 207.1s => sample at 150.0s (Row operation arithmetic) and 185.0s (REF Staircase)
+    # Scene 5: 207.1 - 262.4s => sample at 235.0s (Checkmarks verification) and 250.0s (Special cases)
+    # Scene 6: 262.4 - 316.6s => sample at 275.0s (Takeaways), 300.0s (Disclosure), 312.0s (Closing Card)
     sample_timestamps = [
-        (15.0, "scene_01_hook_sample.png", "Scene 1: 3 Equations and Motivation"),
-        (55.0, "scene_02_concepts_sample.png", "Scene 2: Core Concepts and Learning Objective"),
-        (105.0, "scene_03_geometry_sample.png", "Scene 3: 3D Planes & Intersection Point"),
-        (175.0, "scene_04_worked_example_sample.png", "Scene 4: Row Operations & REF Matrix"),
-        (255.0, "scene_05_interpretation_sample.png", "Scene 5: Verification Checkmarks & Special Cases"),
-        (310.0, "scene_06_summary_sample.png", "Scene 6: Summary Takeaways & Academic Credits")
+        (18.0, "scene_01_hook_sample.png", "Scene 1: 3 Simultaneous Equations"),
+        (55.0, "scene_02_concepts_sample.png", "Scene 2: Official Learning Objective"),
+        (72.0, "scene_02_row_ops_sample.png", "Scene 2: Three Elementary Row Operations"),
+        (100.0, "scene_03_geometry_sample.png", "Scene 3: 3D Planes & Intersection Point (1,2,3)"),
+        (150.0, "scene_04_worked_example_sample.png", "Scene 4: Row Operation 1 Arithmetic"),
+        (185.0, "scene_04_ref_staircase_sample.png", "Scene 4: Row Echelon Form & Pivots (1, 1, 3)"),
+        (200.0, "scene_04_back_substitution.png", "Scene 4: Back Substitution & Final Solution"),
+        (235.0, "scene_05_interpretation_sample.png", "Scene 5: Three Substitution Checks"),
+        (250.0, "scene_05_special_cases.png", "Scene 5: Inconsistent vs Dependent Cases"),
+        (275.0, "scene_06_takeaways.png", "Scene 6: Three Core Takeaways"),
+        (300.0, "scene_06_summary_sample.png", "Scene 6: Academic References & Human Voiceover Disclosure"),
+        (312.0, "scene_06_closing_card.png", "Scene 6: Arjav Jain Closing Academic Credentials")
     ]
 
     for ts, fname, desc in sample_timestamps:
@@ -106,7 +112,7 @@ def extract_inspection_frames():
             out_img
         ]
         subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
-        print(f"-> Extracted {fname} at {ts}s ({desc})")
+        print(f"-> Extracted {fname} at {ts:.1f}s ({desc})")
 
     print("\n-> All inspection frames extracted successfully into:")
     print(f"   {FRAMES_DIR}")

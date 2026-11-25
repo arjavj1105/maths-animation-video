@@ -1,9 +1,10 @@
-# Scene Audio Durations
-scene_01: 34.06s (Hook and Context)
-scene_02: 45.62s (Concept Introduction)
-scene_03: 45.79s (Visual Intuition)
-scene_04: 89.06s (Worked Example)
-scene_05: 60.50s (Interpretation)
-scene_06: 54.62s (Summary and Credits)
+# Scene Audio Durations (Recorded by Arjav Jain - Student ID: E25B070861)
+scene_01: 34.23s (Hook and Context)
+scene_02: 46.21s (Concept Introduction)
+scene_03: 41.01s (Visual Intuition)
+scene_04: 84.50s (Worked Example)
+scene_05: 55.10s (Interpretation)
+scene_06: 53.92s (Summary and Credits)
 
-Total Narration Duration: 329.66s (5.49 minutes)
+Total Human Narration Duration: 314.95s (5.25 minutes)
+Total Video Duration: 316.60s (5.28 minutes)

@@ -20,3 +20,4 @@ Thumbs.db
 venv/
 .venv/
 env/
+_backup_pre_voiceover/

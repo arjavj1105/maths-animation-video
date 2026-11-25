@@ -258,7 +258,7 @@ def generate_storyboard_pdf():
             Paragraph("Title card with student credentials; sequential reveal of 3 simultaneous equations; tangled trial-and-error arrows; glowing reveal of Gaussian Elimination.", styles['body']),
             Paragraph("Welcome and introduction; presentation of the 3-equation system; failure of informal trial/error; motivation for a systematic algorithm.", styles['body']),
             Paragraph("System setup:<br/>x + y + z = 6<br/>2x + 3y + z = 11<br/>x + 2y + 3z = 14", styles['code']),
-            Paragraph("34.5s<br/><i>(Audio: 34.1s)</i>", styles['body'])
+            Paragraph("34.5s<br/><i>(Audio: 34.2s)</i>", styles['body'])
         ],
         [
             Paragraph("<b>2. Concept Introduction</b>", styles['body']),
@@ -266,7 +266,7 @@ def generate_storyboard_pdf():
             Paragraph("Compact matrix equation Ax = b; side-by-side [A|b] augmented matrix; learning objective banner; cards detailing the 3 row operations.", styles['body']),
             Paragraph("Defining A, x, and b; forming the augmented matrix; reciting learning objective; explaining row swaps, scaling, and replacement; proving reversibility.", styles['body']),
             Paragraph("Ax = b representation;<br/>Augmented matrix [A|b];<br/>Three elementary row operations;<br/>Row Echelon Form criteria.", styles['body']),
-            Paragraph("46.0s<br/><i>(Audio: 45.6s)</i>", styles['body'])
+            Paragraph("46.5s<br/><i>(Audio: 46.2s)</i>", styles['body'])
         ],
         [
             Paragraph("<b>3. Visual Intuition</b>", styles['body']),
@@ -274,7 +274,7 @@ def generate_storyboard_pdf():
             Paragraph("ThreeDAxes with labelled X,Y,Z; three semi-transparent colored planes (Blue, Green, Orange); golden sphere at (1,2,3); 360° camera orbit; plane tilt transformation.", styles['body']),
             Paragraph("Each linear equation is an infinite flat plane; two planes intersect in a line; all three intersect at (1,2,3); why linear combinations preserve intersection line.", styles['body']),
             Paragraph("Plane 1: x+y+z=6<br/>Plane 2: 2x+3y+z=11<br/>Plane 3: x+2y+3z=14<br/>Unique point: (1, 2, 3)", styles['code']),
-            Paragraph("46.0s<br/><i>(Audio: 45.8s)</i>", styles['body'])
+            Paragraph("41.3s<br/><i>(Audio: 41.0s)</i>", styles['body'])
         ],
         [
             Paragraph("<b>4. Worked Example</b>", styles['body']),
@@ -282,7 +282,7 @@ def generate_storyboard_pdf():
             Paragraph("Augmented matrix with colored rows; side arithmetic calculations; in-place entry animations; yellow pivot boxes; echelon staircase; back substitution callouts.", styles['body']),
             Paragraph("Walking through R2->R2-2R1, R3->R3-R1, and R3->R3-R2; identifying pivots 1, 1, 3; explaining REF; back substitution solving for z=3, y=2, x=1.", styles['body']),
             Paragraph("Op 1: R2→R2−2R1<br/>Op 2: R3→R3−R1<br/>Op 3: R3→R3−R2<br/>Pivots: 1, 1, 3<br/>z=3, y=2, x=1", styles['code']),
-            Paragraph("89.5s<br/><i>(Audio: 89.1s)</i>", styles['body'])
+            Paragraph("84.8s<br/><i>(Audio: 84.5s)</i>", styles['body'])
         ],
         [
             Paragraph("<b>5. Interpretation</b>", styles['body']),
@@ -290,15 +290,15 @@ def generate_storyboard_pdf():
             Paragraph("Direct substitution into all 3 original equations with animated green checkmarks; side-by-side comparison cards for inconsistent vs dependent systems.", styles['body']),
             Paragraph("Verifying 6=6, 11=11, 14=14; confirming point (1,2,3) lies on all planes; explaining 0=5 contradiction (no solution) and 0=0 free variables (infinite solutions).", styles['body']),
             Paragraph("Eq 1: 6 = 6 ✓<br/>Eq 2: 11 = 11 ✓<br/>Eq 3: 14 = 14 ✓<br/>[0 0 0 | 5] → 0 = 5 (No sol)<br/>[0 0 0 | 0] → 0 = 0 (Inf sol)", styles['code']),
-            Paragraph("61.0s<br/><i>(Audio: 60.5s)</i>", styles['body'])
+            Paragraph("55.3s<br/><i>(Audio: 55.1s)</i>", styles['body'])
         ],
         [
             Paragraph("<b>6. Summary & Credits</b>", styles['body']),
             Paragraph("Reinforce takeaways, cite sources, and conclude.", styles['body']),
             Paragraph("Three takeaway cards with bullet points; final solution banner; academic citations; AI tool disclosure card; closing academic thank you card.", styles['body']),
-            Paragraph("Recapping algorithmic reduction, preservation of solutions, and back substitution; acknowledging Strang, Lay, and Manim; disclosing Antigravity and Edge TTS; final sign-off.", styles['body']),
+            Paragraph("Recapping algorithmic reduction, preservation of solutions, and back substitution; acknowledging Strang, Lay, and Manim; disclosing Antigravity and human voiceover; final sign-off.", styles['body']),
             Paragraph("Key takeaways 1, 2, 3;<br/>Solution: (1, 2, 3);<br/>NumPy verification;<br/>Full academic citations.", styles['body']),
-            Paragraph("55.0s<br/><i>(Audio: 54.6s)</i>", styles['body'])
+            Paragraph("54.2s<br/><i>(Audio: 53.9s)</i>", styles['body'])
         ]
     ]
 
@@ -322,9 +322,9 @@ def generate_storyboard_pdf():
 
     # Total Duration Summary Table
     total_summary = [
-        [Paragraph("<b>Total Video Duration</b>", styles['bold']), Paragraph("<b>332.0s (~5.5 minutes)</b> — Within strict 5-min target & ≤ 7-min ceiling", styles['body'])],
+        [Paragraph("<b>Total Video Duration</b>", styles['bold']), Paragraph("<b>316.63s (~5.28 minutes)</b> — Within strict 5–6 min target & < 7-min ceiling", styles['body'])],
         [Paragraph("<b>Resolution & Codec</b>", styles['bold']), Paragraph("1080p (1920×1080), 30 FPS, H.264 Video, AAC Audio, 16:9 Landscape", styles['body'])],
-        [Paragraph("<b>Voice Narration</b>", styles['bold']), Paragraph("Microsoft Edge TTS (en-US-GuyNeural) — Natural English pacing", styles['body'])]
+        [Paragraph("<b>Voice Narration</b>", styles['bold']), Paragraph("Original Human Voiceover by Arjav Jain — EBU R128 loudness standardized", styles['body'])]
     ]
     summary_table = Table(total_summary, colWidths=[140, 364])
     summary_table.setStyle(TableStyle([
@@ -351,16 +351,17 @@ def generate_narration_script_pdf():
     story.extend(build_metadata_header(styles, "Official Narration Script"))
 
     overview_p = Paragraph(
-        "<b>Voice Specification:</b> Microsoft Edge TTS — Voice: <code>en-US-GuyNeural</code><br/>"
-        "<b>Audio Pacing:</b> Measured empirically using ffprobe; scene animations are calibrated directly "
-        "to the recorded audio durations to prevent voice cutoff and eliminate dead pauses.",
+        "<b>Voice Specification:</b> Original human voice recording by Arjav Jain (Student ID: E25B070861, Batch: Ramanujan)<br/>"
+        "<b>Audio Format & Pacing:</b> Standardized 44.1 kHz 16-bit mono PCM WAV, gentle EBU R128 loudness normalization "
+        "(integrated -18 LUFS, -1.5 dB true peak headroom). Scene animations are calibrated directly "
+        "to Arjav's actual spoken durations to ensure perfect mathematical synchronization.",
         styles['body']
     )
     story.append(overview_p)
     story.append(Spacer(1, 8))
 
     scenes_data = [
-        ("Scene 1: Hook and Context + Opening Credentials", "34.06s", 68,
+        ("Scene 1: Hook and Context + Opening Credentials", "34.23s", 68,
          "Opening title card displays student credentials. Equations appear sequentially. Central question posed.",
          "Welcome to this Mathematics 3 assessment on Gaussian Elimination, presented by Arjav Jain, Student ID E25B070861, from the Ramanujan batch.\n\n"
          "Consider this system of three simultaneous equations: x plus y plus z equals 6, 2x plus 3y plus z equals 11, and x plus 2y plus 3z equals 14.\n\n"
@@ -368,7 +369,7 @@ def generate_narration_script_pdf():
          "Is there a systematic method to solve all three equations efficiently?\n\n"
          "The answer is Gaussian Elimination."),
 
-        ("Scene 2: Concept Introduction & Matrix Formulation", "45.62s", 112,
+        ("Scene 2: Concept Introduction & Matrix Formulation", "46.21s", 112,
          "Matrix equation Ax = b. Augmented matrix [A|b]. Learning objective box. Three row operation cards.",
          "We represent our linear system compactly as A x equals b, where A is the coefficient matrix, x is the variable vector, and b is the constant vector. Combining them forms the augmented matrix.\n\n"
          "Our learning objective: By the end of this video, the viewer will be able to explain how Gaussian elimination uses row operations to reduce a 3 by 3 system to row echelon form, why those operations do not change the solution set, and what the solution means geometrically.\n\n"
@@ -376,7 +377,7 @@ def generate_narration_script_pdf():
          "Because each operation is reversible, they strictly preserve the solution set.\n\n"
          "Our goal is Row Echelon Form: a staircase pattern where leading pivots advance to the right, with zeros everywhere below."),
 
-        ("Scene 3: Visual Intuition & 3D Geometry", "45.79s", 108,
+        ("Scene 3: Visual Intuition & 3D Geometry", "41.01s", 108,
          "ThreeDAxes with blue, green, orange planes. Golden sphere at (1,2,3). Orbiting 3D camera. Plane tilt card.",
          "In three dimensions, each linear equation represents a plane.\n\n"
          "The blue plane is x plus y plus z equals 6.\n\n"
@@ -387,7 +388,7 @@ def generate_narration_script_pdf():
          "Adding a multiple of one row to another replaces a plane with a linear combination. The plane tilts, but it still passes through the common intersection line.\n\n"
          "Row operations simplify our view without altering where the planes intersect."),
 
-        ("Scene 4: Worked Example — Step-by-Step Row Elimination", "89.06s", 205,
+        ("Scene 4: Worked Example — Step-by-Step Row Elimination", "84.50s", 205,
          "Augmented matrix [A|b]. In-place entry morphing. Side arithmetic cards. Yellow pivot boxes. Staircase. Back substitution.",
          "Let us execute Gaussian elimination.\n\n"
          "We begin with the augmented matrix: Row 1 is [1, 1, 1 | 6], Row 2 is [2, 3, 1 | 11], and Row 3 is [1, 2, 3 | 14].\n\n"
@@ -406,7 +407,7 @@ def generate_narration_script_pdf():
          "Row 1 gives: x plus y plus z equals 6. Substituting y and z gives x equals 1.\n\n"
          "Our final solution is (1, 2, 3)."),
 
-        ("Scene 5: Verification & Geometric Interpretation", "60.50s", 136,
+        ("Scene 5: Verification & Geometric Interpretation", "55.10s", 136,
          "Substitution into Eq 1, 2, 3 with green checkmarks. Cards for inconsistent (0=5) and dependent (0=0) systems.",
          "Let us verify our solution by substituting x equals 1, y equals 2, and z equals 3 into all three original equations.\n\n"
          "Equation 1: 1 plus 2 plus 3 equals 6. Verified!\n\n"
@@ -417,7 +418,7 @@ def generate_narration_script_pdf():
          "An inconsistent system produces a row like [0, 0, 0 | 5], meaning 0 equals 5. This contradiction means no solution exists.\n\n"
          "A dependent system produces a row like [0, 0, 0 | 0], meaning 0 equals 0. With free variables, this indicates infinitely many solutions along an intersecting line."),
 
-        ("Scene 6: Summary, Academic References & Credits", "54.62s", 102,
+        ("Scene 6: Summary, Academic References & Credits", "53.92s", 102,
          "Three takeaway cards. Academic citations. AI disclosure card. Closing thank you card.",
          "To summarize, here are three key takeaways:\n\n"
          "One: Gaussian elimination systematically transforms a linear system into row echelon form.\n\n"
@@ -425,7 +426,7 @@ def generate_narration_script_pdf():
          "Three: Back substitution easily reveals the unknown variables from bottom to top.\n\n"
          "Our verified solution is (1, 2, 3).\n\n"
          "References include Strang's Introduction to Linear Algebra, Lay's Linear Algebra and Its Applications, and Manim documentation.\n\n"
-         "AI disclosure: AI tools assisted with scripting, animation code, and narration using Google Antigravity. Voice: Microsoft Edge TTS, en-US-GuyNeural. All mathematical calculations were independently verified.\n\n"
+         "AI disclosure: AI tools assisted in preparing the script, animation code and visual design. Voiceover: Original narration recorded by Arjav Jain. All mathematical calculations were independently verified.\n\n"
          "Thank you. Arjav Jain, Student ID E25B070861.")
     ]
 
@@ -479,7 +480,7 @@ def generate_code_walkthrough_pdf():
          "• <b>Manim Community Edition (v0.22.1):</b> Used for high-precision mathematical vector animations. Unlike static video editors, Manim renders equations and matrices as true vector paths with mathematical positioning.<br/>"
          "• <b>ThreeDScene & ThreeDAxes:</b> Manim's 3D engine computes parametric surfaces and renders camera orbits to display intersecting geometric planes.<br/>"
          "• <b>NumPy (v2.5.5):</b> Performs automated verification of matrix determinants, solves, step-by-step row operations, and residuals prior to rendering.<br/>"
-         "• <b>Microsoft Edge TTS (edge-tts):</b> Generates studio-quality synthetic narration using neural speech synthesis (voice: <code>en-US-GuyNeural</code>).<br/>"
+         "• <b>Human Voiceover Audio:</b> Original narration recorded by Arjav Jain (Student ID: E25B070861), standardized to 44.1 kHz 16-bit mono PCM with gentle EBU R128 loudness normalization and exact animation timing synchronization.<br/>"
          "• <b>FFmpeg (v9.0.2):</b> Handles audio-video multiplexing, duration padding, concatenation, H.264 video encoding, and AAC audio compression."),
 
         ("2. Visual Hierarchy & Color Philosophy",

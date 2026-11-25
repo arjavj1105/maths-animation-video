@@ -1,7 +1,8 @@
 """
 Scene 2: Concept Introduction
 Topic: Notation, Ax = b, Augmented Matrix, Row Operations, Learning Objective
-Target duration: ~46.0s (Audio duration: 45.62s)
+Narration: Original voice recording by Arjav Jain (Duration: 46.21s)
+Target synchronized animation duration: 46.50s
 """
 
 import sys
@@ -21,7 +22,7 @@ class Scene02Concepts(Scene):
 
         # -------------------------------------------------------------
         # 1. Header & Matrix Equation Ax = b
-        # Time: 0.0s -> 11.0s (11.0s)
+        # Time: 0.0s -> 9.8s (Matches narration 0.04s -> 10.18s)
         # -------------------------------------------------------------
         header = create_header("Concept Foundation: Matrix Representation", "Formulating the linear system as A x = b")
         self.play(FadeIn(header, shift=DOWN * 0.2), run_time=1.0)
@@ -54,12 +55,12 @@ class Scene02Concepts(Scene):
         group_b = VGroup(card_b_rect, card_b)
 
         components = VGroup(group_a, group_x, group_b).arrange(RIGHT, buff=0.5).move_to(DOWN * 0.1)
-        self.play(FadeIn(components, shift=UP * 0.2), run_time=1.5)
-        self.wait(7.5)
+        self.play(FadeIn(components, shift=UP * 0.2), run_time=1.2)
+        self.wait(6.6)
 
         # -------------------------------------------------------------
         # 2. Augmented Matrix [A | b]
-        # Time: 11.0s -> 20.0s (9.0s)
+        # Time: 9.8s -> 14.0s (Matches narration 10.18s -> 14.06s)
         # -------------------------------------------------------------
         aug_label = Text("Augmented Matrix:  [ A | b ]", font="Helvetica", weight=BOLD, font_size=24, color=PIVOT_COLOR)
         aug_label.to_edge(UP, buff=1.6)
@@ -75,13 +76,13 @@ class Scene02Concepts(Scene):
             FadeOut(components),
             Transform(eq_label, aug_label),
             FadeIn(mat_mob, shift=UP * 0.2),
-            run_time=1.5
+            run_time=1.2
         )
-        self.wait(7.5)
+        self.wait(3.0)
 
         # -------------------------------------------------------------
         # 3. Exact Learning Objective Display
-        # Time: 20.0s -> 32.0s (12.0s)
+        # Time: 14.0s -> 27.5s (Matches narration 14.06s -> 27.67s)
         # -------------------------------------------------------------
         self.play(FadeOut(mat_mob), FadeOut(eq_label), run_time=1.0)
 
@@ -100,11 +101,11 @@ class Scene02Concepts(Scene):
         ).move_to(lo_box.get_center())
 
         self.play(FadeIn(lo_badge, shift=DOWN * 0.1), Create(lo_box), Write(lo_text), run_time=2.0)
-        self.wait(9.0)
+        self.wait(9.5)
 
         # -------------------------------------------------------------
         # 4. Elementary Row Operations & Row Echelon Form
-        # Time: 32.0s -> 46.0s (14.0s)
+        # Time: 27.5s -> 46.5s (Matches narration 27.67s -> 45.56s)
         # -------------------------------------------------------------
         self.play(FadeOut(lo_badge), FadeOut(lo_box), FadeOut(lo_text), run_time=1.0)
 
@@ -124,7 +125,9 @@ class Scene02Concepts(Scene):
 
         self.play(Write(ops_title), run_time=1.0)
         self.play(FadeIn(op1, shift=RIGHT * 0.2), run_time=0.8)
+        self.wait(1.7)
         self.play(FadeIn(op2, shift=RIGHT * 0.2), run_time=0.8)
+        self.wait(1.2)
         self.play(FadeIn(op3, shift=RIGHT * 0.2), run_time=0.8)
         self.play(FadeIn(key_note, shift=UP * 0.2), run_time=1.0)
-        self.wait(8.6)
+        self.wait(11.7)

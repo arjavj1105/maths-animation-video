@@ -10,6 +10,6 @@ Our verified solution is (1, 2, 3).
 
 References include Strang's Introduction to Linear Algebra, Lay's Linear Algebra and Its Applications, and Manim documentation.
 
-AI disclosure: AI tools assisted with scripting, animation code, and narration using Google Antigravity. Voice: Microsoft Edge TTS, en-US-GuyNeural. All mathematical calculations were independently verified.
+AI disclosure: AI tools assisted in preparing the script, animation code and visual design. Voiceover: Original narration recorded by Arjav Jain. All mathematical calculations were independently verified.
 
 Thank you. Arjav Jain, Student ID E25B070861.

@@ -2,7 +2,8 @@
 Scene 4: Worked Example
 Topic: Complete Step-by-Step Gaussian Elimination, Row Operations with Arithmetic,
        Row Echelon Form with Pivots, and Back Substitution
-Target duration: ~89.5s (Audio duration: 89.06s)
+Narration: Original voice recording by Arjav Jain (Duration: 84.50s)
+Target synchronized animation duration: 84.80s
 """
 
 import sys
@@ -22,7 +23,8 @@ class Scene04WorkedExample(Scene):
 
         # -------------------------------------------------------------
         # 1. Header and Initial Matrix
-        # Time: 0.0s -> 12.0s (12.0s)
+        # Time: 0.0s -> 19.5s (Matches narration 0.04s -> 19.97s)
+        # Arjav reads rows 1, 2, 3 until 17.00s, then pivot 1
         # -------------------------------------------------------------
         header = create_header("Worked Example: Gaussian Elimination", "Systematic row reduction to row echelon form")
         self.play(FadeIn(header, shift=DOWN * 0.2), run_time=1.0)
@@ -37,16 +39,18 @@ class Scene04WorkedExample(Scene):
         mat_mob.move_to(LEFT * 2.5 + UP * 0.3)
 
         self.play(FadeIn(mat_mob, shift=UP * 0.3), run_time=1.5)
+        # Hold while Arjav reads Row 1, Row 2, Row 3
+        self.wait(14.0)
 
         # First Pivot highlight at (0, 0)
         piv1_box = create_pivot_box(grid[0][0])
         piv1_lbl = Text("Pivot 1 = 1", font="Helvetica", weight=BOLD, font_size=16, color=PIVOT_COLOR).next_to(piv1_box, UP, buff=0.15)
         self.play(Create(piv1_box), Write(piv1_lbl), run_time=1.0)
-        self.wait(8.5)
+        self.wait(2.0)
 
         # -------------------------------------------------------------
         # 2. Row Operation 1: R2 -> R2 - 2R1
-        # Time: 12.0s -> 28.0s (16.0s)
+        # Time: 19.5s -> 32.5s (Matches narration 19.97s -> 32.78s)
         # -------------------------------------------------------------
         op1_badge = create_badge("Row Operation 1:  R₂ → R₂ − 2R₁", color=ROW2_COLOR, font_size=18)
         op1_badge.move_to(RIGHT * 3.2 + UP * 1.8)
@@ -73,11 +77,11 @@ class Scene04WorkedExample(Scene):
             r2_anims.append(Transform(grid[1][c_idx], new_text))
 
         self.play(*r2_anims, run_time=1.5)
-        self.wait(13.0)
+        self.wait(10.0)
 
         # -------------------------------------------------------------
         # 3. Row Operation 2: R3 -> R3 - R1
-        # Time: 28.0s -> 44.0s (16.0s)
+        # Time: 32.5s -> 44.5s (Matches narration 32.78s -> 45.00s)
         # -------------------------------------------------------------
         self.play(FadeOut(step1_side), run_time=1.0)
 
@@ -106,11 +110,11 @@ class Scene04WorkedExample(Scene):
             r3_anims.append(Transform(grid[2][c_idx], new_text))
 
         self.play(*r3_anims, run_time=1.5)
-        self.wait(12.0)
+        self.wait(8.0)
 
         # -------------------------------------------------------------
         # 4. Row Operation 3: R3 -> R3 - R2
-        # Time: 44.0s -> 60.0s (16.0s)
+        # Time: 44.5s -> 56.5s (Matches narration 45.00s -> 57.00s)
         # -------------------------------------------------------------
         self.play(FadeOut(step2_side), FadeOut(piv1_box), FadeOut(piv1_lbl), run_time=1.0)
 
@@ -144,11 +148,11 @@ class Scene04WorkedExample(Scene):
             r3_final_anims.append(Transform(grid[2][c_idx], new_text))
 
         self.play(*r3_final_anims, run_time=1.5)
-        self.wait(11.0)
+        self.wait(7.0)
 
         # -------------------------------------------------------------
         # 5. Row Echelon Form (REF) & Pivots Highlight
-        # Time: 60.0s -> 72.0s (12.0s)
+        # Time: 56.5s -> 64.0s (Matches narration 57.00s -> 64.00s)
         # -------------------------------------------------------------
         self.play(FadeOut(step3_side), FadeOut(piv2_box), FadeOut(piv2_lbl), run_time=1.0)
 
@@ -174,15 +178,15 @@ class Scene04WorkedExample(Scene):
 
         self.play(FadeIn(ref_banner), Create(all_pivots), Create(staircase), run_time=2.0)
         self.play(FadeIn(ref_notes, shift=LEFT * 0.2), run_time=1.5)
-        self.wait(7.5)
+        self.wait(3.0)
 
         # -------------------------------------------------------------
         # 6. Back Substitution to Final Solution
-        # Time: 72.0s -> 89.5s (17.5s)
+        # Time: 64.0s -> 84.8s (Matches narration 64.00s -> 84.50s)
         # -------------------------------------------------------------
         self.play(
             FadeOut(mat_mob), FadeOut(ref_banner), FadeOut(all_pivots), FadeOut(staircase), FadeOut(ref_notes),
-            run_time=1.2
+            run_time=1.0
         )
 
         bs_title = Text("Back Substitution", font="Helvetica", weight=BOLD, font_size=26, color=PIVOT_COLOR).to_edge(UP, buff=1.4)
@@ -198,13 +202,16 @@ class Scene04WorkedExample(Scene):
         bs_group = VGroup(bs_z, bs_y, bs_x).arrange(DOWN, buff=0.4, aligned_edge=LEFT).move_to(UP * 0.3)
 
         self.play(FadeIn(bs_z, shift=RIGHT * 0.3), run_time=1.2)
+        self.wait(1.3)
         self.play(FadeIn(bs_y, shift=RIGHT * 0.3), run_time=1.2)
+        self.wait(5.0)
         self.play(FadeIn(bs_x, shift=RIGHT * 0.3), run_time=1.2)
+        self.wait(4.8)
 
         # Final Solution Banner
         sol_text = Text("Final Solution:  (x, y, z) = (1, 2, 3)", font="Helvetica", weight=BOLD, font_size=28, color=PIVOT_COLOR)
         sol_box = SurroundingRectangle(sol_text, buff=0.3, color=PIVOT_COLOR, stroke_width=2.5, corner_radius=0.12)
         final_sol_mob = VGroup(sol_box, sol_text).next_to(bs_group, DOWN, buff=0.6)
 
-        self.play(DrawBorderThenFill(final_sol_mob), run_time=1.8)
-        self.wait(10.1)
+        self.play(DrawBorderThenFill(final_sol_mob), run_time=1.5)
+        self.wait(2.8)

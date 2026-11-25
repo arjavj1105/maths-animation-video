@@ -123,17 +123,20 @@ maths-animation-video/
     │   ├── scene_05.txt
     │   └── scene_06.txt
     │
-    ├── audio/                      # Generated scene narration MP3s and durations.txt
-    │   ├── scene_01.mp3 ... scene_06.mp3
-    │   └── durations.txt
+    ├── audio/                      # Original recordings, processed audio & manifest
+    │   ├── human_voiceovers/       # Arjav Jain's original audio recordings (scene_01.m4a ... scene_06.m4a)
+    │   ├── processed/              # Standardized 44.1kHz 16-bit EBU R128 WAV files
+    │   ├── scene_audio_manifest.json # Audio metadata, durations, and loudness analysis
+    │   ├── scene_audio_manifest.md   # Markdown summary of audio analysis
+    │   └── durations.txt           # Measured audio durations per scene
     │
     ├── scripts/                    # Automation and pipeline scripts
-    │   ├── verify_mathematics.py   # NumPy automated verification
-    │   ├── generate_narration.py   # Edge-TTS voice synthesis
-    │   ├── render_scenes.py        # 1080p Manim batch rendering
-    │   ├── merge_video_audio.py    # FFmpeg sync and concatenation pipeline
-    │   ├── generate_documents.py   # ReportLab PDF documentation builder
-    │   └── quality_check.py        # Technical ffprobe and visual QA inspector
+    │   ├── verify_mathematics.py   # NumPy automated verification suite
+    │   ├── process_audio.py        # Human audio processing and loudness normalization
+    │   ├── render_scenes.py        # 1080p Manim batch rendering (synchronized to human voice)
+    │   ├── merge_video_audio.py    # FFmpeg audio-video synchronization & final concatenation
+    │   ├── generate_documents.py   # ReportLab academic PDF documentation builder
+    │   └── quality_check.py        # Technical ffprobe verification & frame extraction
     │
     └── requirements.txt            # Python dependencies
 ```
@@ -145,9 +148,9 @@ maths-animation-video/
 - **Animation Engine:** [Manim Community Edition (v0.22.1)](https://www.manim.community/) — Python programmatic mathematical animation engine.
 - **3D Geometry:** Manim `ThreeDScene`, `ThreeDAxes`, and `Surface` parametric plotting.
 - **Mathematical Verification:** [NumPy (v2.5.5)](https://numpy.org/) — Linear algebra verification (`det`, `solve`, array operations, residuals).
-- **Voiceover Synthesis:** [Microsoft Edge TTS (edge-tts)](https://github.com/rany2/edge-tts) — High-quality neural voiceover (`en-US-GuyNeural`).
+- **Voiceover Narration:** Original human narration recorded by **Arjav Jain** (Student ID: E25B070861, Batch: Ramanujan) — standardized and gently normalized using FFmpeg EBU R128 loudness standards (-18 LUFS, -1.5 dB true peak headroom).
 - **Video & Audio Processing:** [FFmpeg (v9.0.2)](https://ffmpeg.org/) — Audio-video synchronization, H.264/AAC encoding, and concatenation.
-- **Document Generation:** [ReportLab (v5.1.0)](https://www.reportlab.com/) — Programmatic PDF generation with professional typography.
+- **Document Generation:** [ReportLab (v4.5.1)](https://www.reportlab.com/) — Programmatic PDF generation with professional typography.
 
 ---
 
@@ -185,10 +188,10 @@ Execute the automated NumPy verification suite:
 python3 _Code/scripts/verify_mathematics.py
 ```
 
-### 4. Generate Voiceover Narration
-Synthesize the narration audio and measure exact durations:
+### 4. Process Human Voiceover Narration
+Standardize human voice recordings and generate audio manifest:
 ```bash
-python3 _Code/scripts/generate_narration.py
+python3 _Code/scripts/process_audio.py
 ```
 
 ### 5. Render All Scenes in 1080p
@@ -221,12 +224,12 @@ python3 _Code/scripts/generate_documents.py
 
 - **Container:** MP4
 - **Video Codec:** H.264 (AVC)
-- **Audio Codec:** AAC (192 kbps)
+- **Audio Codec:** AAC (192 kbps, 44.1 kHz, mono)
 - **Resolution:** 1920 × 1080 (1080p Full HD)
 - **Aspect Ratio:** 16:9 Landscape
 - **Frame Rate:** 30.0 FPS
-- **Duration:** ~332 seconds (5 minutes 32 seconds) — safely under the 7-minute limit
-- **Audio:** Crisp English voiceover, zero clipping, synchronized visual transitions.
+- **Duration:** ~316.6 seconds (5 minutes 16.6 seconds) — safely under the 7-minute ceiling
+- **Audio:** Original human voiceover by Arjav Jain, zero clipping, EBU R128 normalized, synchronized visual transitions.
 
 ---
 
@@ -240,4 +243,4 @@ python3 _Code/scripts/generate_documents.py
 
 ## AI Disclosure
 
-AI tools assisted in preparing the script, animation code, and narration. The project was developed using **Google Antigravity** and the tools documented in the repository. Voice synthesis was generated using **Microsoft Edge TTS** (`en-US-GuyNeural`). All mathematical derivations, row operations, determinants, and solutions were independently verified with NumPy.
+AI tools assisted in preparing the script, animation code and visual design. Voiceover: Original narration recorded by Arjav Jain. All mathematical calculations were independently verified.
