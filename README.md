@@ -78,14 +78,16 @@ All three original equations are satisfied with zero residuals:
 
 | Scene | Scene Title | Purpose & Visual Progression | Mathematics Covered | Duration |
 |:---:|:---|:---|:---|:---:|
-| **1** | **Hook / Context** | Opening credentials card; sequential reveal of the 3 simultaneous equations; tangled trial & error vs systematic algorithms. | System definition; motivation for Gaussian elimination. | **34.5s** |
-| **2** | **Concept Introduction** | Matrix form $Ax = b$; augmented matrix $[A \mid b]$; mandatory learning objective; 3 elementary row operations and reversibility. | Compact notation; row swaps, scaling, and replacements; REF criteria. | **46.0s** |
-| **3** | **Visual Intuition** | 3D coordinate system; three semi-transparent intersecting planes; unique point $(1, 2, 3)$; 360° orbiting camera; plane tilt invariance. | Plane equations in $\mathbb{R}^3$; line of intersection; geometric invariance under row operations. | **46.0s** |
-| **4** | **Worked Example** | The core algorithm: step-by-step matrix row operations; side-by-side arithmetic; highlighted pivots; REF staircase; back substitution. | $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - R_1$, $R_3 \to R_3 - R_2$; pivots $1, 1, 3$; back substitution. | **89.5s** |
-| **5** | **Interpretation** | Verification by direct substitution with green checkmarks; 3D point reconnection; special cases (inconsistent vs dependent). | Verification: $6=6, 11=11, 14=14$; inconsistent $[0\ 0\ 0 \mid 5]$; dependent $[0\ 0\ 0 \mid 0]$. | **61.0s** |
-| **6** | **Summary & Credits** | Three key takeaways; final solution restatement; academic citations; AI disclosure; academic closing credentials. | Core principles summary; solution $(1, 2, 3)$; full references and disclosures. | **55.0s** |
+| **1** | **Hook / Context** | Opening credentials card; sequential reveal of the 3 simultaneous equations; tangled trial & error vs systematic algorithms. | System definition; motivation for Gaussian elimination. | **34.50s** *(Audio: 34.23s)* |
+| **2** | **Concept Introduction** | Matrix form $Ax = b$; augmented matrix $[A \mid b]$; mandatory learning objective; 3 elementary row operations and reversibility. | Compact notation; row swaps, scaling, and replacements; REF criteria. | **46.50s** *(Audio: 46.21s)* |
+| **3** | **Visual Intuition** | 3D coordinate system; three semi-transparent intersecting planes; unique point $(1, 2, 3)$; 360° orbiting camera; plane tilt invariance. | Plane equations in $\mathbb{R}^3$; line of intersection; geometric invariance under row operations. | **41.30s** *(Audio: 41.01s)* |
+| **4** | **Worked Example** | The core algorithm: step-by-step matrix row operations; side-by-side arithmetic; highlighted pivots; REF staircase; back substitution. | $R_2 \to R_2 - 2R_1$, $R_3 \to R_3 - R_1$, $R_3 \to R_3 - R_2$; pivots $1, 1, 3$; back substitution. | **84.80s** *(Audio: 84.50s)* |
+| **5** | **Interpretation** | Verification by direct substitution with green checkmarks; 3D point reconnection; special cases (inconsistent vs dependent). | Verification: $6=6, 11=11, 14=14$; inconsistent $[0\ 0\ 0 \mid 5]$; dependent $[0\ 0\ 0 \mid 0]$. | **55.30s** *(Audio: 55.10s)* |
+| **6** | **Summary & Credits** | Three key takeaways; final solution restatement; academic citations; AI disclosure; academic closing credentials. | Core principles summary; solution $(1, 2, 3)$; full references and disclosures. | **54.20s** *(Audio: 53.92s)* |
 
-**Total Video Duration:** ~332 seconds (**5.5 minutes**) — strictly adheres to the ~5-minute recommendation and $\le 7$-minute ceiling.
+- **Total Calibrated Scene Duration:** **316.60 seconds** (5 minutes 16.60 seconds)
+- **Total Spoken Human Audio Duration:** **314.96 seconds** (5 minutes 14.96 seconds)
+- **Final Measured MP4 Video Duration:** **316.63 seconds** (5 minutes 16.63 seconds) — strictly adheres to the ~5-minute recommendation and $\le 7$-minute ceiling.
 
 ---
 
@@ -222,14 +224,17 @@ python3 _Code/scripts/generate_documents.py
 
 ## Technical Video Specifications
 
-- **Container:** MP4
-- **Video Codec:** H.264 (AVC)
-- **Audio Codec:** AAC (192 kbps, 44.1 kHz, mono)
+- **Container:** MP4 (ISO/IEC 14496-14, faststart enabled)
+- **Video Codec:** H.264 (AVC, High Profile, Level 4.0)
+- **Audio Codec:** AAC-LC (44.1 kHz, mono, ~157 kbps)
 - **Resolution:** 1920 × 1080 (1080p Full HD)
 - **Aspect Ratio:** 16:9 Landscape
 - **Frame Rate:** 30.0 FPS
-- **Duration:** ~316.6 seconds (5 minutes 16.6 seconds) — safely under the 7-minute ceiling
-- **Audio:** Original human voiceover by Arjav Jain, zero clipping, EBU R128 normalized, synchronized visual transitions.
+- **Calibrated Scene Duration:** 316.60 seconds (5 minutes 16.60 seconds)
+- **Total Spoken Audio Duration:** 314.96 seconds (5 minutes 14.96 seconds)
+- **Final Measured MP4 Container Duration:** 316.63 seconds (5 minutes 16.63 seconds) — safely under the 7-minute ceiling
+- **File Size:** 19.64 MB (18.73 MiB) — safely within GitHub limits (<100 MB)
+- **Audio:** Original human voiceover by Arjav Jain, zero clipping, EBU R128 normalized (-18.0 LUFS, -1.5 dBTP), synchronized visual transitions.
 
 ---
 
